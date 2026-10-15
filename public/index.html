@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f2f5f2">
+    <title>Service booking</title>
+    <link rel="stylesheet" href="/style.css">
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <main class="page-shell">
+      <section class="panel" aria-labelledby="page-title">
+        <header class="page-header">
+          <h1 id="page-title" data-i18n="title">Service booking</h1>
+          <div class="header-actions" aria-label="Display settings">
+            <div class="segmented" role="group" aria-label="Language">
+              <button class="segment is-active" id="language-en" type="button" aria-pressed="true">English</button>
+              <button class="segment" id="language-ar" type="button" aria-pressed="false">العربية</button>
+            </div>
+            <button class="button button-secondary" id="theme-toggle" type="button" data-i18n="darkMode">Dark mode</button>
+          </div>
+        </header>
+
+        <form id="booking-form" class="booking-form">
+          <label class="field">
+            <span data-i18n="customerName">Customer name</span>
+            <input name="customerName" autocomplete="name" maxlength="100" required>
+          </label>
+          <label class="field">
+            <span data-i18n="phone">Phone number</span>
+            <input name="phone" type="tel" autocomplete="tel" maxlength="30" required>
+          </label>
+          <label class="field">
+            <span data-i18n="carType">Car type</span>
+            <select name="carType" required></select>
+          </label>
+          <label class="field">
+            <span data-i18n="serviceType">Service</span>
+            <select name="serviceType" required></select>
+          </label>
+          <label class="field">
+            <span data-i18n="preferredDate">Preferred date</span>
+            <input name="preferredDate" type="date" required>
+          </label>
+          <label class="field">
+            <span data-i18n="preferredTime">Preferred time</span>
+            <input name="preferredTime" type="time" required>
+          </label>
+          <button class="button button-primary submit-button" type="submit" data-i18n="createBooking">Create booking</button>
+          <p id="form-message" class="form-message" role="status" aria-live="polite"></p>
+        </form>
+
+        <section class="bookings-section" aria-labelledby="bookings-title">
+          <div class="section-heading">
+            <h2 id="bookings-title" data-i18n="bookings">Bookings</h2>
+            <button class="button button-secondary" id="refresh-bookings" type="button" data-i18n="refresh">Refresh</button>
+          </div>
+          <p id="list-message" class="form-message" role="status" aria-live="polite"></p>
+          <div id="booking-list" class="booking-list"></div>
+        </section>
+        <p class="demo-note" data-i18n="demoNote">Demo project. The booking list and status controls are not protected by authentication.</p>
+      </section>
+    </main>
+  </body>
+</html>
+
